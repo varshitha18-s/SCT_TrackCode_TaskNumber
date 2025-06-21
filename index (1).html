@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Navigation Menu</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 2000px; /* for scroll testing */
+    }
+
+    /* Fixed Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: transparent;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s;
+      z-index: 1000;
+    }
+
+    /* Change color when scrolled */
+    .navbar.scrolled {
+      background-color: #333;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      color: #00bcd4;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      padding: 6px 12px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 4px;
+    }
+
+    /* Page Content */
+    .content {
+      padding-top: 80px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <div class="navbar" id="navbar">
+    <div class="logo">SkillCraft</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content">
+    <h1>Welcome to SkillCraft Technology</h1>
+    <p>Scroll down to see the navbar color change.</p>
+  </div>
+
+  <!-- Script for Scroll Effect -->
+  <script>
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
